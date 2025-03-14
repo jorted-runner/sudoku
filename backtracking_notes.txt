@@ -1,0 +1,5 @@
+Backtracking (Think Like a Programmer) https://www.youtube.com/watch?v=gBC_Fd8EE8A
+Intro to backtracking https://www.geeksforgeeks.org/introduction-to-backtracking-2/
+Intro to backtracking: Backtracking coding template https://www.youtube.com/watch?v=vqnZ9RhhkmY
+Recursion and Backtracking https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
+

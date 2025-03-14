@@ -1,0 +1,6 @@
+Video tutorial of how to create the grid: https://youtu.be/Xw0xxvyxFuE?si=CL0vAYvCREWNmEqk
+
+Full sudoku in python and pygame tutorial: https://www.youtube.com/watch?v=kayFasm5hUg
+
+Sudoku RNN in Pytorch: https://medium.com/@josef_44177/sudoku-rnn-in-pytorch-d1fddef850a8#:~:text=With%20a%20simple%20strategy%20we,in%20a%20Kaggle%20dataset%20perfectly
+    This uses ML to solve any sudoku puzzle with 100% accuracy
