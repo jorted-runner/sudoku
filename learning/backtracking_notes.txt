@@ -1,0 +1,10 @@
+Backtracking (Think Like a Programmer) https://www.youtube.com/watch?v=gBC_Fd8EE8A
+Intro to backtracking https://www.geeksforgeeks.org/introduction-to-backtracking-2/
+Intro to backtracking: Backtracking coding template https://www.youtube.com/watch?v=vqnZ9RhhkmY
+Recursion and Backtracking https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
+
+Backtracking (Think like a programmer):
+- What is it?
+    - When solving a problem with lots of choices, a wrong choice can lead to a dead end. when a dead end is reached we have to go back to a position with different choices.
+    - Recursive solutions are often a natural fit for backtracking, but it can be difficult to see the backtracking in recursive solutions
+    - https://youtu.be/gBC_Fd8EE8A?si=5s_zUkAP-TMqc684&t=349

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Volumes/JORTED/Developer/sudoku/learning",
+      "program": "/Volumes/JORTED/Developer/sudoku/learning/build/Debug/outDebug"
+    }
+  ]
+}
