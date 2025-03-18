@@ -7,4 +7,23 @@ Backtracking (Think like a programmer):
 - What is it?
     - When solving a problem with lots of choices, a wrong choice can lead to a dead end. when a dead end is reached we have to go back to a position with different choices.
     - Recursive solutions are often a natural fit for backtracking, but it can be difficult to see the backtracking in recursive solutions
-    - https://youtu.be/gBC_Fd8EE8A?si=5s_zUkAP-TMqc684&t=349
+
+Intro to backtracking: Backtracking coding template:
+- Backtracking is a general algorithm for finding some or all of the solutions to computational problems. It works especially well with constraint satisfaction problems of CSPs (i.e. Sudoku). The algorithm incrementally builds candidates to the solution and abandons a candidate as soon as it is determined that the candidate won't lead to a valid solution.
+- Backtracking Templed:
+
+backtrack(candidates, target, currentPath) {
+    if currentPath == target {
+        // update answer and/or end recursion
+    }
+
+    for candidate in candidates {
+        if candidate is valid {
+            currentPath.add(candidate);
+            backtrack(candidates, target, currentPath);
+            currentPath.remove(candidate);
+        }
+    }
+}
+
+Intro to backtracking: geeksforgeeks:
