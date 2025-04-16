@@ -27,3 +27,24 @@ backtrack(candidates, target, currentPath) {
 }
 
 Intro to backtracking: geeksforgeeks:
+- Backtracking is a problem-solving algorithm that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end.
+- Basic Backtracking Terminology
+    - Candidate: A potential choice or element that can be added to the current solution
+    - Solution: A valid and complete configuration that satisfies the problem constraints
+    - Partial Solution: A partial solution is an incomplete configuration that is constructed during the backtracking process
+    - Decision Space: The set of all possible candidates or choices at each decision point
+    - Decision Point: A specific step in the algorithm where a candidate is chosen and added to the partial solution
+    - Feasible Solution: A feasible solution is a partial solution or complete solution that adheres to all constraints
+    - Dead End: A dead end occurs when a partial solution reaches a decision point that cannot extend without violating constraints
+    - Backtrack: Undoing previous decisions and returning to a prior decision point
+    - Search Space: All possible combinations of a candidates and choices
+    - Optimal Solution: The optimal solution is the best possible solution
+
+- Types of Backtracking:
+    - Generally backtracking problems can be categorized into 3 categories:
+        - Decision Problems: Search for a feasible solution
+        - Optimization Problems: Search for the best solution
+        - Enumeration Problems: Search for all possible feasible solutions
+
+- How does it work?
+    - 
