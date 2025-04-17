@@ -3,11 +3,15 @@ Intro to backtracking https://www.geeksforgeeks.org/introduction-to-backtracking
 Intro to backtracking: Backtracking coding template https://www.youtube.com/watch?v=vqnZ9RhhkmY
 Recursion and Backtracking https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
 
+
+#################################
 Backtracking (Think like a programmer):
 - What is it?
     - When solving a problem with lots of choices, a wrong choice can lead to a dead end. when a dead end is reached we have to go back to a position with different choices.
     - Recursive solutions are often a natural fit for backtracking, but it can be difficult to see the backtracking in recursive solutions
 
+
+#################################
 Intro to backtracking: Backtracking coding template:
 - Backtracking is a general algorithm for finding some or all of the solutions to computational problems. It works especially well with constraint satisfaction problems of CSPs (i.e. Sudoku). The algorithm incrementally builds candidates to the solution and abandons a candidate as soon as it is determined that the candidate won't lead to a valid solution.
 - Backtracking Templed:
@@ -26,6 +30,8 @@ backtrack(candidates, target, currentPath) {
     }
 }
 
+
+#################################
 Intro to backtracking: geeksforgeeks:
 - Backtracking is a problem-solving algorithm that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end.
 - Basic Backtracking Terminology
@@ -46,5 +52,23 @@ Intro to backtracking: geeksforgeeks:
         - Optimization Problems: Search for the best solution
         - Enumeration Problems: Search for all possible feasible solutions
 
-- How does it work?
-    - 
+- Backtracking works similar to linked lists or binary trees. Each node points back to its parent node.
+
+Pseudocode for Backtracking
+
+void FIND_SOLUTIONS(parameters):
+    if (valid solution):
+        store the solution
+        return
+    for (all choice):
+        Apply(choice)
+        FIND_SOLUTIONS(parameters)
+        Backtrack(remove choice)
+    return
+
+How is Backtracking different from Recursion?
+Recursion and Backtracking are related concepts in computer science but are not the same thing. Recursion does not always require backtracking, it solves problems by breaking them into smaller, similar subproblem and solving them recursively, controlled by function calls in a stack. Where as backtracking always uses recursion to solve problems, solves problems with multiple choices and explores options systematically, backtracking when needed, managed explicitly with loops and states.
+
+
+#################################
+Recursion and Backtracking:
