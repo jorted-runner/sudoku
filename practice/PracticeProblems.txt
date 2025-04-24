@@ -1,0 +1,130 @@
+1 - N-Queen
+    Given a chess board having  cells, you need to place N queens on the board in such a way that no queen attacks any other queen.
+
+    Input:
+    The only line of input consists of a single integer denoting N.
+
+    Output:
+    If it is possible to place all the N queens in such a way that no queen attacks another queen, then print "YES" (without quotes) in first line, then print N lines having N integers. The integer in  line and  column will denote the cell  of the board and should be 1 if a queen is placed at  otherwise 0. If there are more than way of placing queens print any of them.
+
+    If it is not possible to place all N queens in the desired way, then print "NO" (without quotes).
+
+    Constraints:
+    1 <= N <= 10
+
+2 - Rat in a Maze
+    Given a square grid of N x N with 0s and 1s where 1 represents an open cell and 0 a blocked one, find a path from the top-left cell to the bottom-right cell, moving only right or down.
+
+    Input:
+    The first line contains the integer N.
+    The next N lines contain N integers (0 or 1) each.
+
+    Output:
+    Print "YES" and the N x N path matrix showing the route using 1s.
+    If no path exists, print "NO".
+
+    Constraints:
+    1 <= N <= 10
+
+3 - Knight's Tour
+    Given an N x N chessboard, place a knight on the board such that it visits every square exactly once.
+
+    Input:
+    A single integer N.
+
+    Output:
+    Print "YES" followed by the board with move numbers from 1 to N*N.
+    If a full tour is not possible, print "NO".
+
+    Constraints:
+    5 <= N <= 8
+
+4 - Word Search in grid
+    Given a 2D grid of characters and a word, determine if the word can be found in the grid by moving up, down, left, or right. Each letter cell may only be used once per word.
+
+    Input:
+    First line contains the word.
+    Next lines represent the grid.
+
+    Output:
+    Print "YES" if the word can be found, otherwise print "NO".
+
+    Constraints:
+    1 <= Grid dimensions <= 20
+
+5 - Palindrome Partitioning
+    Given a string, partition it so that every substring is a palindrome. Return all such valid partitionings.
+
+    Input:
+    A single string of lowercase letters.
+
+    Output:
+    Print "YES" and each valid partition on a new line, with substrings space-separated.
+    If no partitioning exists, print "NO".
+
+    Constraints:
+    1 <= Length <= 20
+
+6 - Combinations of K numbers
+    Given two integers N and K, generate all combinations of K numbers from the numbers 1 to N.
+
+    Input:
+    Two space-separated integers N and K.
+
+    Output:
+    Print each combination on its own line, with numbers sorted in ascending order.
+
+    Constraints:
+    1 <= K <= N <= 10
+
+7 - Subset Sum
+    Given a set of positive integers and a target value, find all subsets that sum to the target.
+
+    Input:
+    First line contains the target sum.
+    Second line contains space-separated integers.
+
+    Output:
+    Print "YES" and each valid subset on its own line.
+    If no subset matches, print "NO".
+
+    Constraints:
+    1 <= Number of elements <= 20
+
+8 - Binary Strings Without Consecutive 1s
+    Given an integer N, generate all binary strings of length N that do not contain consecutive 1s.
+
+    Input:
+    A single integer N.
+
+    Output:
+    Print each valid binary string on a new line.
+
+    Constraints:
+    1 <= N <= 16
+
+9 - M-Coloring Problem
+    Given a graph with N vertices and an integer M, determine if it's possible to color the graph using M colors such that no two adjacent vertices share the same color.
+
+    Input:
+    First line: two integers N and M.
+    Next lines: adjacency list or matrix for the graph.
+
+    Output:
+    Print "YES" followed by one valid coloring.
+    If no coloring is possible, print "NO".
+
+    Constraints:
+    1 <= N <= 10
+
+10 - Generate Permutations
+    Given a string of unique characters, generate all permutations of that string.
+
+    Input:
+    A single line containing the string.
+
+    Output:
+    Print each permutation on its own line, in any order.
+
+    Constraints:
+    1 <= Length of string <= 8
