@@ -1,4 +1,4 @@
-1 - N-Queen
+DONE - 1 - N-Queen
     Given a chess board having  cells, you need to place N queens on the board in such a way that no queen attacks any other queen.
 
     Input:
@@ -12,7 +12,7 @@
     Constraints:
     1 <= N <= 10
 
-2 - Rat in a Maze
+DONE - 2 - Rat in a Maze
     Given a square grid of N x N with 0s and 1s where 1 represents an open cell and 0 a blocked one, find a path from the top-left cell to the bottom-right cell, moving only right or down.
 
     Input:
