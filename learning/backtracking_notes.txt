@@ -1,79 +1,91 @@
-## Learning: Backtracking
+Backtracking (Think Like a Programmer) https://www.youtube.com/watch?v=gBC_Fd8EE8A
+Intro to backtracking https://www.geeksforgeeks.org/introduction-to-backtracking-2/
+Intro to backtracking: Backtracking coding template https://www.youtube.com/watch?v=vqnZ9RhhkmY
+Recursion and Backtracking https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
 
-In my ongoing effort to strengthen my problem-solving skills, I have been studying backtracking algorithms. This section documents what I have learned, the practice problems I implemented, and my reflections on the challenges and optimizations encountered along the way.
 
-### Overview
+#################################
+Backtracking (Think like a programmer):
+- What is it?
+    - When solving a problem with lots of choices, a wrong choice can lead to a dead end. when a dead end is reached we have to go back to a position with different choices.
+    - Recursive solutions are often a natural fit for backtracking, but it can be difficult to see the backtracking in recursive solutions
 
-Recently, I’ve been studying **backtracking algorithms**, focusing on how they apply to constraint satisfaction problems like Sudoku, the N-Queens problem, and the Knight’s Tour.  
-Backtracking is a problem-solving technique that systematically explores all possible solutions by building candidates incrementally and abandoning paths that violate constraints. Recursive solutions often naturally lend themselves to backtracking, although the backtracking process can sometimes be hidden within the recursion.
 
-Key resources I used during this study:
-- [Backtracking (Think Like a Programmer)](https://www.youtube.com/watch?v=gBC_Fd8EE8A)
-- [Intro to Backtracking (GeeksforGeeks)](https://www.geeksforgeeks.org/introduction-to-backtracking-2/)
-- [Backtracking Coding Template (YouTube)](https://www.youtube.com/watch?v=vqnZ9RhhkmY)
-- [Recursion and Backtracking (HackerEarth)](https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/)
+#################################
+Intro to backtracking: Backtracking coding template:
+- Backtracking is a general algorithm for finding some or all of the solutions to computational problems. It works especially well with constraint satisfaction problems of CSPs (i.e. Sudoku). The algorithm incrementally builds candidates to the solution and abandons a candidate as soon as it is determined that the candidate won't lead to a valid solution.
+- Backtracking Templed:
 
----
+backtrack(candidates, target, currentPath) {
+    if currentPath == target {
+        // update answer and/or end recursion
+    }
 
-### Concepts and Techniques
+    for candidate in candidates {
+        if candidate is valid {
+            currentPath.add(candidate);
+            backtrack(candidates, target, currentPath);
+            currentPath.remove(candidate);
+        }
+    }
+}
 
-**Backtracking Terminology:**
-- **Candidate:** A potential choice that could be part of a solution.
-- **Solution:** A complete, valid configuration.
-- **Partial Solution:** An incomplete configuration being built.
-- **Decision Space:** All available choices at a decision point.
-- **Dead End:** A path that cannot proceed without violating constraints.
-- **Backtrack:** Undoing a previous decision to explore a different path.
-- **Search Space:** All possible configurations.
-- **Optimal Solution:** The best possible valid solution according to given criteria.
 
-**Types of Backtracking Problems:**
-- **Decision Problems:** Find any feasible solution.
-- **Optimization Problems:** Find the best solution.
-- **Enumeration Problems:** Find all possible solutions.
+#################################
+Intro to backtracking: geeksforgeeks:
+- Backtracking is a problem-solving algorithm that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end.
+- Basic Backtracking Terminology
+    - Candidate: A potential choice or element that can be added to the current solution
+    - Solution: A valid and complete configuration that satisfies the problem constraints
+    - Partial Solution: A partial solution is an incomplete configuration that is constructed during the backtracking process
+    - Decision Space: The set of all possible candidates or choices at each decision point
+    - Decision Point: A specific step in the algorithm where a candidate is chosen and added to the partial solution
+    - Feasible Solution: A feasible solution is a partial solution or complete solution that adheres to all constraints
+    - Dead End: A dead end occurs when a partial solution reaches a decision point that cannot extend without violating constraints
+    - Backtrack: Undoing previous decisions and returning to a prior decision point
+    - Search Space: All possible combinations of a candidates and choices
+    - Optimal Solution: The optimal solution is the best possible solution
 
-**Key distinction:**  
-While recursion breaks problems into smaller subproblems, backtracking specifically explores multiple choices and undoes decisions when necessary. Backtracking is generally managed explicitly with loops and state tracking, rather than purely through the call stack.
+- Types of Backtracking:
+    - Generally backtracking problems can be categorized into 3 categories:
+        - Decision Problems: Search for a feasible solution
+        - Optimization Problems: Search for the best solution
+        - Enumeration Problems: Search for all possible feasible solutions
 
----
+- Backtracking works similar to linked lists or binary trees. Each node points back to its parent node.
 
-### Common Backtracking Structure
+Pseudocode for Backtracking
 
-```pseudo
-backtrack(candidates, target, currentPath):
-    if currentPath meets target condition:
-        record solution
+void FIND_SOLUTIONS(parameters):
+    if (valid solution):
+        store the solution
         return
+    for (all choice):
+        Apply(choice)
+        FIND_SOLUTIONS(parameters)
+        Backtrack(remove choice)
+    return
 
-    for each candidate in candidates:
-        if candidate is valid:
-            add candidate to currentPath
-            backtrack(candidates, target, currentPath)
-            remove candidate from currentPath
-```
+How is Backtracking different from Recursion?
+Recursion and Backtracking are related concepts in computer science but are not the same thing. Recursion does not always require backtracking, it solves problems by breaking them into smaller, similar subproblem and solving them recursively, controlled by function calls in a stack. Where as backtracking always uses recursion to solve problems, solves problems with multiple choices and explores options systematically, backtracking when needed, managed explicitly with loops and states.
 
----
 
-### Practice Problems
+#################################
+I've been working on several practice problems to reinforce what I've learned about backtracking. The three problems I've done are
+- N Queen:
+    - Given a chess board having N x N cells, you need to place N queens on the board in such a way that no queen attacks any other queen.
+    - Input: The only line of input is a single integer denoting N
+    - Output: If it is possible to place all the N queens in such a way that no queen attacks another queen, then print "YES" in first line, then print N lines having N integers. The integer in line and column will denote the cell of the board and should be 1 if a queen is placed otherwise 0. If it is not possible to place all N queens in the desired way, then print "NO".
+    - Constraints: 1 <= N <= 10
+- Rat in a Maze:
+    - Given a square grid of N x N with 0s and 1s where 1 represents an open cell and 0 a blocked one, find a path from the top-left cell to the bottom-right cell, moving only right or down.
+    - Input: The first line contains the integer N. the next N lines contains N integers (0 or 1) each.
+    - Output: Print "YES" and the N x N path matrix showing the route using 1s. If no path exists, print "NO".
+    - Constraints: 1 <= N <= 10
+- Knight's Tour:
+    - Given an N x N chessboard, place a knight on the board such that it visits every square exactly once.
+    - Input: A single integer N
+    - Output: Print "YES" followed by the board with the move numbers from 1 to N x N. If a full tour is not possible, print "NO".
+    - Constraints: 5 <= N <= 8
 
-To reinforce my understanding, I implemented backtracking solutions for several classic problems:
-
-**N-Queens Problem**
-- Place N queens on an N×N chessboard such that no two queens threaten each other.
-- Focus: Constraint satisfaction and placement validity.
-
-**Rat in a Maze**
-- Find a path from the top-left to the bottom-right of a grid by moving only right or down through open cells.
-- Focus: Pathfinding with constrained movement options.
-
-**Knight’s Tour**
-- Move a knight across an N×N chessboard, visiting each square exactly once.
-- Focus: Deep search and move sequencing.
-
----
-
-### Reflection and Next Steps
-
-While my solutions performed well for smaller problem sizes, I encountered performance issues with larger Knight’s Tour boards (N = 6, 7, 8). The brute-force backtracking approach led to extremely long runtimes, exploring millions or billions of paths without optimization.
-
-To improve, I am now studying **Warnsdorff’s Rule** — a heuristic that prioritizes moves with the fewest onward moves, greatly reducing the search space. Implementing this optimization should make my Knight’s Tour solution far more efficient and allow it to handle larger board sizes.
+The problems all went pretty well and helped me better understand how backtracking works. But I have run into a problem. I wrote tests to test my solution to Knight's Tour and when I try to find the solution for N = 6, 7, or 8 just keep spinning. I've let the test run for up to 10 minutes before force ending the test session. After consulting ChatGPT its because my approach to backtracking is brute force without any sort of optimization. So when it is trying to test 6, 7, or 8 it is running through million or billions of possible paths. I'm going to learn about Warnsdorff's Rule to help optimize my backtracking algorithm.
