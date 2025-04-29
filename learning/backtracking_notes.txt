@@ -1,74 +1,79 @@
-Backtracking (Think Like a Programmer) https://www.youtube.com/watch?v=gBC_Fd8EE8A
-Intro to backtracking https://www.geeksforgeeks.org/introduction-to-backtracking-2/
-Intro to backtracking: Backtracking coding template https://www.youtube.com/watch?v=vqnZ9RhhkmY
-Recursion and Backtracking https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
+## Learning: Backtracking
 
+In my ongoing effort to strengthen my problem-solving skills, I have been studying backtracking algorithms. This section documents what I have learned, the practice problems I implemented, and my reflections on the challenges and optimizations encountered along the way.
 
-#################################
-Backtracking (Think like a programmer):
-- What is it?
-    - When solving a problem with lots of choices, a wrong choice can lead to a dead end. when a dead end is reached we have to go back to a position with different choices.
-    - Recursive solutions are often a natural fit for backtracking, but it can be difficult to see the backtracking in recursive solutions
+### Overview
 
+Recently, I’ve been studying **backtracking algorithms**, focusing on how they apply to constraint satisfaction problems like Sudoku, the N-Queens problem, and the Knight’s Tour.  
+Backtracking is a problem-solving technique that systematically explores all possible solutions by building candidates incrementally and abandoning paths that violate constraints. Recursive solutions often naturally lend themselves to backtracking, although the backtracking process can sometimes be hidden within the recursion.
 
-#################################
-Intro to backtracking: Backtracking coding template:
-- Backtracking is a general algorithm for finding some or all of the solutions to computational problems. It works especially well with constraint satisfaction problems of CSPs (i.e. Sudoku). The algorithm incrementally builds candidates to the solution and abandons a candidate as soon as it is determined that the candidate won't lead to a valid solution.
-- Backtracking Templed:
+Key resources I used during this study:
+- [Backtracking (Think Like a Programmer)](https://www.youtube.com/watch?v=gBC_Fd8EE8A)
+- [Intro to Backtracking (GeeksforGeeks)](https://www.geeksforgeeks.org/introduction-to-backtracking-2/)
+- [Backtracking Coding Template (YouTube)](https://www.youtube.com/watch?v=vqnZ9RhhkmY)
+- [Recursion and Backtracking (HackerEarth)](https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/)
 
-backtrack(candidates, target, currentPath) {
-    if currentPath == target {
-        // update answer and/or end recursion
-    }
+---
 
-    for candidate in candidates {
-        if candidate is valid {
-            currentPath.add(candidate);
-            backtrack(candidates, target, currentPath);
-            currentPath.remove(candidate);
-        }
-    }
-}
+### Concepts and Techniques
 
+**Backtracking Terminology:**
+- **Candidate:** A potential choice that could be part of a solution.
+- **Solution:** A complete, valid configuration.
+- **Partial Solution:** An incomplete configuration being built.
+- **Decision Space:** All available choices at a decision point.
+- **Dead End:** A path that cannot proceed without violating constraints.
+- **Backtrack:** Undoing a previous decision to explore a different path.
+- **Search Space:** All possible configurations.
+- **Optimal Solution:** The best possible valid solution according to given criteria.
 
-#################################
-Intro to backtracking: geeksforgeeks:
-- Backtracking is a problem-solving algorithm that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end.
-- Basic Backtracking Terminology
-    - Candidate: A potential choice or element that can be added to the current solution
-    - Solution: A valid and complete configuration that satisfies the problem constraints
-    - Partial Solution: A partial solution is an incomplete configuration that is constructed during the backtracking process
-    - Decision Space: The set of all possible candidates or choices at each decision point
-    - Decision Point: A specific step in the algorithm where a candidate is chosen and added to the partial solution
-    - Feasible Solution: A feasible solution is a partial solution or complete solution that adheres to all constraints
-    - Dead End: A dead end occurs when a partial solution reaches a decision point that cannot extend without violating constraints
-    - Backtrack: Undoing previous decisions and returning to a prior decision point
-    - Search Space: All possible combinations of a candidates and choices
-    - Optimal Solution: The optimal solution is the best possible solution
+**Types of Backtracking Problems:**
+- **Decision Problems:** Find any feasible solution.
+- **Optimization Problems:** Find the best solution.
+- **Enumeration Problems:** Find all possible solutions.
 
-- Types of Backtracking:
-    - Generally backtracking problems can be categorized into 3 categories:
-        - Decision Problems: Search for a feasible solution
-        - Optimization Problems: Search for the best solution
-        - Enumeration Problems: Search for all possible feasible solutions
+**Key distinction:**  
+While recursion breaks problems into smaller subproblems, backtracking specifically explores multiple choices and undoes decisions when necessary. Backtracking is generally managed explicitly with loops and state tracking, rather than purely through the call stack.
 
-- Backtracking works similar to linked lists or binary trees. Each node points back to its parent node.
+---
 
-Pseudocode for Backtracking
+### Common Backtracking Structure
 
-void FIND_SOLUTIONS(parameters):
-    if (valid solution):
-        store the solution
+```pseudo
+backtrack(candidates, target, currentPath):
+    if currentPath meets target condition:
+        record solution
         return
-    for (all choice):
-        Apply(choice)
-        FIND_SOLUTIONS(parameters)
-        Backtrack(remove choice)
-    return
 
-How is Backtracking different from Recursion?
-Recursion and Backtracking are related concepts in computer science but are not the same thing. Recursion does not always require backtracking, it solves problems by breaking them into smaller, similar subproblem and solving them recursively, controlled by function calls in a stack. Where as backtracking always uses recursion to solve problems, solves problems with multiple choices and explores options systematically, backtracking when needed, managed explicitly with loops and states.
+    for each candidate in candidates:
+        if candidate is valid:
+            add candidate to currentPath
+            backtrack(candidates, target, currentPath)
+            remove candidate from currentPath
+```
 
+---
 
-#################################
-Recursion and Backtracking:
+### Practice Problems
+
+To reinforce my understanding, I implemented backtracking solutions for several classic problems:
+
+**N-Queens Problem**
+- Place N queens on an N×N chessboard such that no two queens threaten each other.
+- Focus: Constraint satisfaction and placement validity.
+
+**Rat in a Maze**
+- Find a path from the top-left to the bottom-right of a grid by moving only right or down through open cells.
+- Focus: Pathfinding with constrained movement options.
+
+**Knight’s Tour**
+- Move a knight across an N×N chessboard, visiting each square exactly once.
+- Focus: Deep search and move sequencing.
+
+---
+
+### Reflection and Next Steps
+
+While my solutions performed well for smaller problem sizes, I encountered performance issues with larger Knight’s Tour boards (N = 6, 7, 8). The brute-force backtracking approach led to extremely long runtimes, exploring millions or billions of paths without optimization.
+
+To improve, I am now studying **Warnsdorff’s Rule** — a heuristic that prioritizes moves with the fewest onward moves, greatly reducing the search space. Implementing this optimization should make my Knight’s Tour solution far more efficient and allow it to handle larger board sizes.
